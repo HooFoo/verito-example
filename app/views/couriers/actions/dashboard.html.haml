@@ -1,0 +1,39 @@
+%h1
+  = t('courier.dashboard.active')
+%ul.tasks-list.list-group
+  - @proposals.each do |proposal|
+    %li.task.proposal.list-group-item
+      %a.task-link{href: "/couriers/actions/proposal/#{proposal.id}"}
+        %div.panel.panel-default
+          %div.panel-heading
+            %span.id
+              = "##{proposal.id}"
+            %span.name
+              = proposal.name
+          %div.panel-body{class: proposal.checklist.nil? ? '' : 'bg-success'}
+            %img.photo{src: proposal.main_photo.image.thumb.url}
+            %span.address
+              = proposal.address
+          %div.panel-footer
+            %span.assignation
+              = proposal.admin_user
+            %span.updated.pull-right
+              = proposal.updated_at.strftime('%m.%d - %H:%M:%S')
+  - @orders.each do |order|
+    %li.task.order.list-group-item
+      %a.task-link{href: "/couriers/actions/order/#{order.id}"}
+        %div.panel.panel-default
+          %div.panel-heading
+            %span.id
+              = "##{order.id}"
+            %span.name
+              = order.item.name
+          %div.panel-body{class: ''}
+            %img.photo{src: order.item.main_photo.image.thumb.url}
+            %span.address
+              = order.address
+          %div.panel-footer
+            %span.assignation
+              = order.admin_user
+            %span.updated.pull-right
+              = order.updated_at.strftime('%m.%d - %H:%M:%S')

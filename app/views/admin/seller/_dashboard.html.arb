@@ -1,0 +1,15 @@
+table_for params[:items] do |t|
+  column :id do |p|
+    link_to p.id, "/admin/selleritem/?item_id=#{p.id}"
+  end
+  column :main_photo do |p|
+    image_tag p.main_photo.image.thumb.url
+  end
+  column :name do |p|
+    link_to p.name, "/admin/selleritem/?item_id=#{p.id}"
+  end
+  column :city
+  column :filial
+  column :created_at
+  column(:full_info) { |p| auto_link(p) }
+end

@@ -1,0 +1,17 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "devise_bootstrap_views";
+
+body {
+  max-width: 768px;
+  width: 100vw;
+  margin: auto;
+}
+.checkbox {
+  margin-top: 0px;
+}
+.checkbox input[type="checkbox"]
+{
+  margin-left: 0px;
+  width: 30px;
+}

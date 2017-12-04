@@ -1,0 +1,9 @@
+= semantic_form_for [:admin, params[:item]], builder: ActiveAdmin::FormBuilder do |f|
+  - f.has_many :links do |p|
+    - p.input :site, as: :select, collection: Link::Sites, :include_blank => false
+    - p.input :url
+    - p.input :admin_user_id, as: :hidden, input_html: { value: p.object.admin_user_id || current_admin_user.id }
+    - p.input :created_at, as: :datepicker, input_html: { disabled: true}
+    - p.input :updated_at, as: :datepicker, input_html: { disabled: true}
+    - p.input :_destroy, as: :boolean
+  = f.actions

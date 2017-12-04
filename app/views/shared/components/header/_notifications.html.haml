@@ -1,0 +1,11 @@
+-unless flash[:notice].nil? && flash[:alert].nil? && flash[:error].nil?
+  %div.notifications.alert.alert-info
+    -if flash[:notice]
+      %p.notice
+        = flash[:notice]
+    -if flash[:alert]
+      %p.alert
+        = flash[:alert]
+    -if flash[:error]
+      %p.alert
+        = flash[:error]

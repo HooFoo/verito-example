@@ -1,0 +1,4 @@
+%li.nav_item{:class => (defined? item_class) ? item_class : nil}
+  %a.navigation_link{:href => nav_element, :rel => (defined? rel) ? rel : nil, :'data-method' => (defined? data_method) ? data_method : nil}
+    %span.navigation_link_text
+      = link_text

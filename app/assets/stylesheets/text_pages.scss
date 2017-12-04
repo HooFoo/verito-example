@@ -1,0 +1,12 @@
+.pages-screen {
+  .desktop {
+    display: block;
+    @include respond-to-min($resp_dt) { display: block;}
+    @include respond-to-max($resp_pad) { display: none;}
+  }
+  .mobile {
+    display: none;
+    @include respond-to-min($resp_dt) { display: none;}
+    @include respond-to-max($resp_pad) { display: block;}
+  }
+}

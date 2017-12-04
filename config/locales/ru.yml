@@ -1,0 +1,763 @@
+ru:
+  date:
+    formats:
+      # Форматы указываются в виде, поддерживаемом strftime.
+      # По умолчанию используется default.
+      # Можно добавлять собственные форматы
+      #
+      #
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%d.%m.%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    # Названия дней недели -- контекстные и отдельностоящие
+    day_names: [воскресенье, понедельник, вторник, среда, четверг, пятница, суббота]
+    standalone_day_names: [Воскресенье, Понедельник, Вторник, Среда, Четверг, Пятница, Суббота]
+    abbr_day_names: [Вс, Пн, Вт, Ср, Чт, Пт, Сб]
+
+    # Названия месяцев -- сокращенные и полные, плюс отдельностоящие.
+    # Не забудьте nil в начале массиве (~)
+    #
+    #
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, января, февраля, марта, апреля, мая, июня, июля, августа, сентября, октября, ноября, декабря]
+    standalone_month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
+    abbr_month_names: [~, янв, фев, мар, апр, мая, июн, июл, авг, сен, окт, ноя, дек]
+    standalone_abbr_month_names: [~, янв., февр., март, апр., май, июнь, июль, авг., сент., окт., нояб., дек.]
+
+    # Порядок компонентов даты для хелперов
+    #
+    #
+    # Used in date_select and datime_select.
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    # Форматы времени
+    formats:
+      default: "%e %B %Y %H:%M"
+      time: "%H:%M:%S"
+      day_and_month: "%e %B"
+      date: "%e %B %Y"
+      short_full: "%d.%m.%Y %H:%M"
+      short_date: "%d.%m.%Y"
+      short_time: "%H:%M"
+      long: "%e %B %Y %H:%M"
+      full: "%e %B %Y %H:%M:%S"
+
+    # am/pm решено перевести как "утра/вечера" :)
+    am: "утра"
+    pm: "вечера"
+
+  datetime:
+    distance_in_words:
+      ago: 'назад'
+      about_x_hours:
+        few: около %{count} часов
+        many: около %{count} часов
+        one: около %{count} часа
+        other: около %{count} часов
+      about_x_months:
+        few: около %{count} месяцев
+        many: около %{count} месяцев
+        one: около %{count} месяца
+        other: около %{count} месяца
+      about_x_years:
+        few: около %{count} лет
+        many: около %{count} лет
+        one: около %{count} года
+        other: около %{count} лет
+      almost_x_years:
+        one: почти 1 год
+        few: почти %{count} года
+        many: почти %{count} лет
+        other: почти %{count} лет
+      half_a_minute: меньше минуты
+      less_than_x_minutes:
+        few: меньше %{count} минут
+        many: меньше %{count} минут
+        one: меньше %{count} минуты
+        other: меньше %{count} минут
+      less_than_x_seconds:
+        few: меньше %{count} секунд
+        many: меньше %{count} секунд
+        one: меньше %{count} секунды
+        other: меньше %{count} секунды
+      over_x_years:
+        few: больше %{count} лет
+        many: больше %{count} лет
+        one: больше %{count} года
+        other: больше %{count} лет
+      x_days:
+        few: ! '%{count} дня'
+        many: ! '%{count} дней'
+        one: ! '%{count} день'
+        other: ! '%{count} дней'
+      x_minutes:
+        few: ! '%{count} минуты'
+        many: ! '%{count} минут'
+        one: ! '%{count} минуту'
+        other: ! '%{count} минуты'
+      x_months:
+        few: ! '%{count} месяца'
+        many: ! '%{count} месяцев'
+        one: ! '%{count} месяц'
+        other: ! '%{count} месяца'
+      x_seconds:
+        few: ! '%{count} секунды'
+        many: ! '%{count} секунд'
+        one: ! '%{count} секундy'
+        other: ! '%{count} секунды'
+    prompts:
+      day: День
+      hour: Часов
+      minute: Минут
+      month: Месяц
+      second: Секунд
+      year: Год
+  flash:
+      actions:
+        destroy:
+          alert: "%{resource_name} could not be destroyed. %{resource_errors}"
+  devise:
+    confirmations:
+      confirmed: "Ваша учётная запись успешно подтверждена."
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
+      send_paranoid_instructions: "Если ваш адрес email есть в нашей базе данных, то в течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
+    failure:
+      already_authenticated: "Вы уже вошли в систему."
+      inactive: "Ваша учётная запись ещё не активирована."
+      invalid: "Неверный %{authentication_keys} или пароль."
+      locked: "Ваша учётная запись заблокирована."
+      last_attempt: "У Вас осталась еще одна попытка ввести пароль до блокировки."
+      not_found_in_database: "Неверный %{authentication_keys} или пароль."
+      timeout: "Ваш сеанс закончился. Пожалуйста, войдите в систему снова."
+      unauthenticated: "Вам необходимо войти в систему или зарегистрироваться."
+      unconfirmed: "Вы должны подтвердить вашу учётную запись."
+    mailer:
+      confirmation_instructions:
+        subject: "Инструкции по подтверждению учётной записи."
+      reset_password_instructions:
+        subject: "Инструкции по восстановлению пароля."
+      unlock_instructions:
+        subject: "Инструкции по разблокировке учётной записи."
+      password_change:
+        subject: "Пароль был изменён."
+    omniauth_callbacks:
+      failure: "Вы не можете войти в систему с учётной записью из %{kind}, так как \"%{reason}\"."
+      success: "Вход в систему выполнен с учётной записью из %{kind}."
+    passwords:
+      no_token: "Эта страница доступна только при переходе с email для сброса пароля. Если Вы перешли по ссылке из письма, пожалуйста, убедитесь, что вы использовали полный URL."
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля."
+      send_paranoid_instructions: "Если ваш адрес email есть в нашей базе данных, то в течение нескольких минут Вы получите письмо с инструкциями по восстановлению вашего пароля."
+      updated: "Ваш пароль успешно изменён. Теперь вы вошли в систему."
+      updated_not_active: "Пароль успешно изменён."
+    registrations:
+      destroyed: "До свидания! Ваша учётная запись успешно удалена. Надеемся снова увидеть вас."
+      signed_up: "Добро пожаловать! Вы успешно зарегистрировались."
+      signed_up_but_inactive: "Вы успешно зарегистрировались. Тем не менее, вы не можете войти, потому что ваша учетная запись ещё не активирована."
+      signed_up_but_locked: "Вы успешно зарегистрировались. Тем не менее, вы не можете войти, потому что ваша учетная запись заблокирована."
+      signed_up_but_unconfirmed: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
+      update_needs_confirmation: "Ваш аккаунт успешно обновлен, нонеобходимо подтвердить Ваш новый адрес email. Пожалуйста, проверьте свою электронную почту и нажмите на ссылку \"Подтвердить\", чтобы завершить обновления email."
+      updated: "Ваша учётная запись успешно изменена."
+    sessions:
+      signed_in: "Вход в систему выполнен."
+      signed_out: "Выход из системы выполнен."
+      already_signed_out: "Выход из системы выполнен."
+      user:
+       invalid:
+         login: "Пользователь с таким логином не найден"
+         password: "Пароль не подходит"
+         locked: 'Учетная запись деактивирована'
+    unlocks:
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по разблокировке вашей учётной записи."
+      send_paranoid_instructions: "Если ваша учётная запись существует, то в течение нескольких минут вы получите письмо с инструкциями по её разблокировке."
+      unlocked: "Ваша учётная запись разблокирована. Теперь вы вошли в систему."
+  active_admin:
+    filters:
+      predicates:
+        from: 'от'
+        to: 'до'
+    pagination:
+      per_page: 'Количество на странице'
+  errors:
+    messages:
+      already_confirmed: "уже подтверждена. Пожалуйста, попробуйте войти в систему"
+      confirmation_period_expired: "должен быть подтвержден в течении %{period}, пожалуйста, запросите подтверждение ещё раз"
+      expired: "устарела. Пожалуйста, запросите новую"
+      not_found: "не найдена"
+      not_locked: "не заблокирована"
+      not_found: 'Пользователь не найден'
+      must_be_signed: 'Необходим вход'
+      please_login: 'Вы зарегистрированы. Пожалуйста выполните вход.'
+      wrong_phone_number: 'Неверный формат телефона'
+      address_required: 'Необходим адрес для доставки'
+      not_allowed: 'Вы не можете это просматривать'
+      passport:
+        date: 'Разрешенный формат: ГГГГ.ММ.ДД'
+        number: 'Формат: ССССНННННН'
+      password:
+       restore:
+        not_found: 'Пользователь с таким логином не найден'
+      not_saved:
+        one: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+        few: "%{resource}: сохранение не удалось из-за %{count} ошибок"
+        many: "%{resource}: сохранение не удалось из-за %{count} ошибок"
+        other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+      country:
+        code: 'Некорректный формат кода. 2-3 символа, заглавные буквы, латиница.'
+      favorites:
+        could_not_add: 'Невозможно добавить в избранное'
+      item:
+        prices:
+         show: 'Может быть лишь одна отображаемая цена'
+         current: 'Может быть лишь одна текущая цена'
+        categories: 'Товар не может быть без категорий'
+      order:
+        item: 'Выбраный товар больше не может быть куплен'
+        address: 'Для курьерской доставки вы должны указать адрес'
+        payment: 'Оплата наличными доступна только на складе'
+      item:
+        proposal:
+          b2p_inactive: 'Пользователь не привязал карту'
+      proposal:
+        user:
+          without_passport: 'Введите паспортные данные для возможности вывода средств в личном кабинете.'
+    error404: "Запрашиваемая страница не найдена"
+  time:
+   formats:
+     long: "%Y-%m-%d %H:%M:%S"
+     short: '%Y-%m-%d'
+     text: '%Y-%B-%d %H:%M'
+     item: '%d %B %Y'
+     notice: '%d %B %Y %H:%M'
+  activerecord:
+    # Сообщения об ошибке (валидации) ActiveRecord
+    errors:
+      # Для всех сообщений доступны макросы %{model}, {{attribute}}, {{value}}.
+      # Для некоторых доступен макрос %{count} -- в этом случае можно задать несколько вариантов
+      # сообщения (плюрализация)
+      #
+      # Также можно использовать сообщения, начинающиеся с "^" -- в этом случае
+      # в списке ошибок валидации перед конкретным сообщением не будет выводиться имя атрибута.
+      #
+      #
+      # The values :model, :attribute and :value are always available for interpolation
+      # The value :count is available when applicable. Can be used for pluralization.
+      #
+      # You can use ^-prefixed messages as well to get rid of human attribute name appearing
+      # before your message in validation messages.
+      messages:
+        inclusion: "имеет непредусмотренное значение"
+        exclusion: "имеет зарезервированное значение"
+        invalid: "имеет неверное значение"
+        confirmation: "не совпадает с подтверждением"
+        accepted: "нужно подтвердить"
+        empty: "не может быть пустым"
+        blank: "не может быть пустым"
+        too_long:
+          one:   "слишком большой длины (не может быть больше чем %{count} символ)"
+          few:   "слишком большой длины (не может быть больше чем %{count} символа)"
+          many:  "слишком большой длины (не может быть больше чем %{count} символов)"
+          other: "слишком большой длины (не может быть больше чем %{count} символа)"
+        too_short:
+          one:   "недостаточной длины (не может быть меньше %{count} символа)"
+          few:   "недостаточной длины (не может быть меньше %{count} символов)"
+          many:  "недостаточной длины (не может быть меньше %{count} символов)"
+          other: "недостаточной длины (не может быть меньше %{count} символа)"
+        wrong_length:
+          one:   "неверной длины (может быть длиной ровно %{count} символ)"
+          few:   "неверной длины (может быть длиной ровно %{count} символа)"
+          many:  "неверной длины (может быть длиной ровно %{count} символов)"
+          other: "неверной длины (может быть длиной ровно %{count} символа)"
+        taken: "уже существует"
+        not_a_number: "не является числом"
+        greater_than: "может иметь лишь значение большее %{count}"
+        greater_than_or_equal_to: "может иметь лишь значение большее или равное %{count}"
+        equal_to: "может иметь лишь значение, равное %{count}"
+        less_than: "может иметь лишь значение меньшее чем %{count}"
+        less_than_or_equal_to: "может иметь значение меньшее или равное %{count}"
+        odd: "может иметь лишь четное значение"
+        even: "может иметь лишь нечетное значение"
+        record_invalid: "Возникли ошибки: %{errors}"
+        only_one: 'Может быть только один'
+        credentials: 'Вы должны ввести телефон или email'
+      full_messages:
+        format: "%{attribute} %{message}"
+      models:
+        user:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many: 'Невозможно удалить из-за связаных товаров/заказов'
+  messages:
+    auth:
+      required: 'Вы должны быть авторизованы для этого действия'
+    confirmation:
+      mobile:
+        title: 'Подтверждение телефона'
+        popup: 'На ваш номер телефона выслано смс с кодом подтверждения'
+        popup-request: 'На ваш номер телефона будет выслано смс с кодом подтверждения. Его надо ввести в следующем окне.'
+        request: 'Получить новый код'
+        request-code: 'Выслать код'
+        confirmed: 'Ваш номер телефона подтвержден'
+        not_need: 'Вам не нужно больше подтверждать номер'
+        error: 'Ошибка! Не верный код!'
+        form_caption: 'Код из СМС'
+      oauth:
+        title: 'Подтверждение аккаунта'
+    favorites:
+      new: 'Добавлено в избраное'
+      destroy: 'Удалено из избранного'
+    order:
+      errors: 'Оформление заказа не удалось по следующим причинам'
+      created: 'Заказ создан'
+      restricted: 'Вы не можете просмотреть этот заказ'
+    proposal:
+      deny: 'Заявка принадлежит не вам!'
+    user:
+      activated: 'Пользователь активирован'
+      deactivated: 'Пользователь деактивирован'
+    change:
+      title: 'Подтверждение'
+      text: 'Чтобы сохранить изменения, нужно перезагрузить страницу прямо сейчас'
+      refresh: 'Перезагрузить'
+      cancel: 'Отменить'
+  models:
+    names:
+      order: 'Покупка'
+      item: 'Продажа'
+      proposal: 'Заявка'
+  sms:
+    confirmation: 'Подтвердите вашу регистрацию на Verito.ru: '
+    password: 'Ваш временный пароль: '
+    changed: 'Статус "%{unit}" обновлен. Подробности на http://verito.ru/'
+    password_token: 'Для смены пароля введите код: %{code}'
+    special:
+      proposal:
+        converted: 'Ваш товар "%{unit}" размещена на витрине.'
+        unconfirmed: 'Заявка "%{unit}" принята.'
+      order:
+        delivery: 'Заказ "%{unit}" передан в доставку.'
+        complete: 'Заказ "%{unit}" выдан.'
+      item:
+        archived: 'Товар "%{unit}" продан.'
+        delayed: 'Товар "%{unit}" снят с витрины.'
+    oauth:
+      text: 'Подтвердите ваш аккаунт: %{token}'
+  email:
+    notifications:
+      manager:
+        subject: 'Требуется внимание менеджера'
+        text: 'В системе зафиксировано изменение статуса '
+        link: 'Для просмотра подробной информации перейдите на '
+      courier:
+        subject: 'Требуется внимание курьера'
+        text: 'Пожалуйста, обратите ваше внимание на '
+        link: 'Для просмотра подробной информации перейдите на '
+      user:
+        subject: 'Обновление ваших товаров на Verito.ru'
+        text:
+         hello: 'Доброго дня, %{username}.'
+         body: 'На сайте http://verito.ru зарегистрировано изменение статуса вашего товара.'
+         more: 'Подробности вы можете увидеть в вашем личном кабинете: %{link}'
+         unsubscribe: 'Вы можете управлять оповещениеми в личном кабинете: %{link}'
+        links:
+          personal: 'Перейти в личный кабинет'
+  header:
+    city: 'Я здесь'
+    counter: "На складе %{counter} товаров"
+    viewed: 'Просмотреные товары'
+    user:
+      sign_in: 'Вход / Регистрация'
+      hello: "Здравствуйте, %{name}."
+      lk: 'Вход в личный кабинет'
+    item:
+      new: 'Продать...'
+    search:
+      placeholder: 'Я ищу...'
+  footer:
+    text:
+      rows:
+        first:
+          text: '© Залогика — сайт склад. Использование сайта, в том числе размещение лота, означает согласие с '
+          link: 'пользовательским соглашением.'
+        second:
+          text: 'Оплачивая услуги на сайте, вы принимаете'
+          link: 'договор оферты.'
+    buttons:
+      delivery: 'Доставка'
+      payments: 'Оплата'
+      filials: 'Филиалы'
+      tariff: 'Тарифы и условия'
+      about: 'О компании'
+      contacts: 'Контакты'
+      logout: 'Выйти'
+    contacts:
+      phone: 'Телефон'
+      address: 'Адрес'
+  sidebar:
+    search: 'Поиск'
+    login: 'Авторизация'
+    favorites: 'Избраное'
+  personal:
+    user_form:
+      header: 'Вы можете изменить почтовый адрес или пароль'
+    profile:
+      contacts: 'Контактная информация'
+      settings: 'Настройки профиля'
+      header: 'Отредактируйте ваш профиль'
+      mobile: 'Телефон'
+      email: 'Электронная почта'
+      confirmed: 'Подтверждено'
+      not-confirmed: 'Не подтверждено'
+      mobile-confirmation: 'Подтвердить мобильный'
+      change-pass: 'Сменить пароль'
+      passport-btn: 'Ввести паспортные данные'
+      change-pass-form:
+        title: 'Смена пароля'
+        old_password: 'Старый пароль'
+        password: 'Новый пароль'
+        password_confirmation: 'Пароль повторно'
+        submit: 'Сменить'
+      notifications: 'Оповещения'
+      change-pass-confirmation-form:
+        title: 'Подтверждение'
+        text: 'Мы отправили код подтверждения на ваш телефон'
+        token: 'Код с телефона'
+        submit: 'Подтвердить'
+      passport:
+        title: 'Паспортнык данные'
+        text: 'Введите ваши паспортные данные для возможности вывода платежей'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        patronymic: 'Отчество'
+        birth_date: 'Дата рождения'
+        persondoc_number: 'Серия и номер в формате: ССССНННННН'
+        persondoc_issdate: 'Дата выдачи'
+        persondoc_issby: 'Название учереждения, где был выдан паспорт'
+        address: 'Адрес регистрации'
+        submit: 'Подтвердить'
+      restore-pass-form:
+        title: 'Восстановление пароля'
+        text: 'Для восстановления пароля введите ваш логин'
+        login: 'Логин'
+        submit: 'Выслать инструкции'
+      name: 'ФИО'
+      currency: 'Валюта'
+      language: 'Язык'
+      city: 'Город'
+    exit: 'Выход'
+    city:
+      caption: 'Выберите город'
+    lang:
+      caption: 'Выберите язык'
+    proposals: 'Ваши заявки'
+    itemss: 'Ваши объявления'
+    notifications:
+      names:
+        proposal:
+          unconfirmed: 'Создана'
+          converted: 'Помещена на витрину'
+        item:
+          archived: 'Товар продан'
+          delayed: 'Товар снят с витрины'
+        order:
+          complete: 'Товар куплен'
+          delivery: 'Покупка отгружена'
+        state_changed: 'Изменение статуса заявки'
+        special_notifications: 'Важные изменения статуса'
+      labels:
+        name: 'Тип оповещения'
+        sms: 'СМС уведомления'
+        email: 'Email уведомления'
+      buttons:
+        save: 'Сохранить'
+    balance:
+      text: 'Ваш баланс: %{balance}'
+      history: 'История'
+      summ: 'Сумма'
+      item: 'Товар'
+      date: 'Дата'
+      new_card: 'Привязать карту'
+      new_phone: 'Ввести платежные данные'
+      pay_out: 'Вывести средства'
+      b2p_fail: 'Не удалось связаться с платежным сервисом. Повторите попытку позже.'
+    units:
+      hint: 'Здесь находится информация о товарах, которые вы продаете.'
+    items:
+      hint: 'Здесь находится информация о товарах, которые вы покупаете.'
+    item:
+      id: 'Идентификатор'
+      status: 'Статус'
+      date: 'Дата добавления'
+      problem: 'Сообщить о проблеме'
+      takeoff: 'Снять с продажи'
+    tabs:
+      profile: 'Редактирование профиля'
+      notifications: 'Настройки оповещений'
+      items: 'Продажа'
+      orders: 'Покупка'
+      balance: 'Баланс'
+    personal-problem:
+      title: 'Снять с продажи'
+      text: 'Кратко опишите проблему в поле ниже'
+      placeholder: 'Описание проблемы'
+    proposals-problem:
+      title: 'Сообщить о проблеме'
+      text: 'Кратко опишите проблему в поле ниже'
+      placeholder: 'Описание проблемы'
+    notices:
+      b2p:
+        confirmed: 'Ваша карта привязана'
+        rejected: 'Не удалось привязать карту'
+  catalog:
+    currency: '₽'
+    buy: 'Купить'
+    more: 'Загрузить еще'
+    loading: 'Загрузка...'
+    empty: 'Товаров, соответствующих настройкам фильтра, не найдено.'
+    filters:
+      all: 'Все'
+      category:
+        label: 'Категории'
+      city:
+        label: 'Город'
+        all: 'Все города'
+      sort:
+        label: 'Сортировать'
+        types:
+          created: 'Добавлено'
+          price: 'Цена'
+        order:
+          ASC: ' - по убыванию'
+          DESC: ' - по возрастанию'
+      button: 'Отфильтровать результаты'
+      price:
+        label: 'Цена'
+    item:
+      id: '№ товара: '
+      created: 'Размещен: '
+      user: 'Пользователем: '
+      cathegorys: 'Категории: '
+      description: 'Описание: '
+      back: 'Назад в каталог'
+      notices: 'Примечания: '
+      price: 'Цена: '
+      city: 'Находится на складе в г. '
+      views: 'Просмотров'
+      order: 'Купить'
+      sold: 'Товар продан'
+      suggest: 'Предложите цену'
+      seller: 'Продавец'
+      created: 'Добавлен'
+      warehouse: 'Склад'
+      delivery: 
+        begin: 'После покупки мы можем' 
+        link: 'доставить' 
+        end: 'товар в ваш город, или вы можете забрать товар у нас на складе'
+      notice: 'Примечание'
+      your_price: 'Ваша цена: %{price}'
+    prices:
+      users: 'пользовательская'
+      special: 'специальная'
+      discount: 'скидка'
+      proposed: 'предложеная'
+    popups:
+      price:
+        title: 'Предложите вашу цену'
+        text: 'Ваша цена'
+  index:
+    recent: 'Недавно просмотренные товары'
+    placeholder: 'Выберите из списка'
+    more: 'Больше товаров'
+    show_filters: 'Показать фильтры'
+  auth:
+    sign_in: 'Авторизация'
+    sign_up: 'Регистрация'
+    or: 'Или'
+    update: 'Обновить'
+    placeholders:
+      mobile: 'Телефон'
+      email: 'Эл.почта'
+      password: 'Пароль'
+      password_confirmation: 'Подтверждение пароля'
+      remember: 'Запомнить меня?'
+    submit:
+      sign_up: 'Зарегистрироваться'
+      sign_in: 'Войти'
+    links:
+      forgot: 'Забыли пароль?'
+      did_not_recieve_confirmation: 'Не получили инструкций о подтверждении?'
+      did_not_recieve_unlock: 'Не получили инструкций о разблокировке?'
+      eula:
+        text: 'Регистрируясь, вы принимаете '
+        link: 'пользовательское соглашение'
+  forms:
+    alerts:
+      required: 'Поле обязательно'
+      user[login]: 'Введите e-mail или номер в формате +79995558811'
+      user[email]: 'Введите e-mail'
+      user[mobile]: 'Введите номер в формате +79995558811'
+      user[password]: 'Пароль должен быть длиной от 6 до 24 символов'
+      user[password_confirmation]: 'Пароль должен быть длиной от 6 до 24 символов'
+      proposal[name]: 'Должно быть длиной от 3 символов'
+      proposal[description]: 'Должно быть длиной от 10 символов'
+      proposal[price]: 'Должно быть числом от 5 000 до 150 000'
+      proposal[address]: 'Должно быть длиной от 3 символов'
+      proposal[mobile]: 'Требуемый формат: +79995558811'
+      order[address]: 'Должно быть длиной от 3 символов'
+      order[mobile]: 'Требуемый формат: +79995558811'
+      token: 'Неверный код'
+      token_expired: 'Срок действия истек'
+      mobile: 'Введите номер в формате +79995558811'
+      email: 'Введите e-mail'
+      password: 'Пароль должен быть длиной от 6 до 24 символов'
+      password_confirmation: 'Пароль должен быть длиной от 6 до 24 символов'
+      old_password: 'Старый пароль не подходит'
+      equals:
+        user[password_confirmation]: 'Пароли не совпадают'
+        password_confirmation: 'Пароли не совпадают'
+    submit: 'Отправить'
+  proposals:
+    header:
+      text: 'Подача заявки'
+    form:
+      name: 'Название товара'
+      description:
+        heading: 'Описание'
+        hint: 'Опишите ваш товар, наличие чеков, упаковки, ориентировочные размер и вес. Это поможет нам сделать подходящее объявление. Напоминаем, что товар не может весть больше 15кг.'
+      price: 
+        heading: 'Цена'
+        hint: 'Цена товара может быть от 5.000 до 150.000 рублей'
+      photos: 
+        title: 'Фотографии'
+        add: 'Добавить фотографии'
+        hint: 'Перетащите сюда файлы с фотографиями товара'
+        types: 'jpg, gif, png'
+        types_text: 'размером до 2 МБ, до 20 файлов'
+      delivery:
+        header: 'Вы можете привезти товар сами, или мы можем бесплатно выслать курьера за товаром'
+        self: 'Самостоятельно до склада по адресу: '
+        courier: 'Вызвать курьера'
+        forcourier: 'Адрес для курьера'
+        tel: 'Контактный телефон'
+      submit: 'Подать заявку'
+    show:
+      delivery:
+        self: 'Самостоятельно до склада: '
+        courier: 'Курьерская'
+      notices:
+        b2p:
+          inactive:
+            link: 'Перейти в личный кабинет'
+  favorites:
+    remove: 'Убрать из избранного'
+    title: 'Избранное'
+    empty-hint: 'Здесь пока пусто. Выделяйте понравившиеся товары сердечком.'
+  admin:
+    manager:
+      headers:
+        queue: 'Очередь задач'
+    delivery:
+      headers:
+        queue: 'Заявки на доставку'
+      label: 'Доставка'
+      assign: 'Назначить курьера'
+    seller:
+      headers:
+        queue: 'Товары, не размещенные на площадках'
+        item: 'Описание товара'
+        links: 'Ссылки на ресурсы'
+      tabs:
+        item: 'Основная информация'
+        categories: 'Категории'
+        properties: 'Свойства'
+        photos: 'Фото'
+    buttons:
+      take: 'Взять в работу'
+      convert: 'Создать товар'
+      assign: 'Назначить курьера'
+      finish: 'Завершить заказ'
+      reject: 'Отклонить'
+      delivery: 'Передать курьеру'
+      receive: 'Получено'
+      for_sale: 'На витрину'
+      delay: 'Отложить'
+      archive: 'Архивировать'
+      from_sale: 'Снять с витрины'
+      return: 'Вернуть'
+      activate: 'Активировать'
+      deactivate: 'Деактивировать'
+    notice:
+      assigned: 'Назначена на вас'
+      rejected: 'Заявка отклонена'
+      return: 'Заявка возвращена на рассмотрение'
+      delivery: 'Ожидает доставки на склад'
+      received: 'Принято на хранение'
+      delayed: 'Товар снят с витрины'
+      for_sale: 'Товар помещен на продажу'
+      finished: 'Заказ завершен'
+      archived: 'Архивировано'
+      critical: 'Внимание! Все что вы делаете на данной странице критично! Будьте предельно внимательны!'
+    messages:
+      reject: 'Вы действительно хотите отклонить заявку?'
+      delay: 'Вы действительно хотите отложить товар?'
+      archive: 'Уверены, что товар можно архивировать?'
+  views:
+    permission:
+      notice:
+       state_changed: 'Разрешения обновлены'
+       reloaded: 'Перезагружено'
+  user:
+    personal:
+      user_id: 'Пользователь'
+  courier:
+    dashboard:
+      active: 'Предметы, требующие доставки'
+  order:
+    header: 'Оформление заказа'
+    stock: 'Склад'
+    delivery:
+      heading: 'Доставка товара'
+      options:
+        self: 'Самостоятельно со склада по адресу: '
+        delivery: 'Курьерская доставка'
+    payment:
+      heading: 'Тип оплаты'
+      options:
+        online: 'Он-лайн'
+        personal: 'Наличными при получении'
+    submit: 'Купить'
+    address: 'Адрес для курьера'
+    number: 'Контактный телефон'
+    payment_screen:
+      invalid:
+        title: 'Время на оплату истекло'
+      timer:
+        first: 'У вас есть '
+        last: ' минут, чтобы оплатить заказ'
+      description: '%{item}. Заказ номер %{order}.'
+    show:
+      header: 'Заказ %{id}'
+      restricted:
+        header: 'просмотр этого заказа вам недоступен'
+      delivery:
+        text: 'Доставка товара'
+        self: 'Самовывоз со склада'
+        courier: 'Доставка по адресу'
+      payment:
+        text: 'Оплата:'
+        online:
+          created: 'Ожидается'
+          complete: 'Оплачено'
+          paid: 'Оплачено'
+          rejected: 'Отклонено'
+        personal: 'Наличными'
+  oauth:
+    heading: 'Подтвердите ваши данные'

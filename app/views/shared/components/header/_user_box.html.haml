@@ -1,0 +1,5 @@
+%div.user_box
+  - user = !@user.nil? && @user.persisted?
+  %a.lk_link{href: user ? '/personal/lk' : '/users/sign_in',
+             title:user ? t('header.user.lk') : t('header.user.sign_in')}
+    %img.profile_icon{src: '/images/user_icon.png'}

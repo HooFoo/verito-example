@@ -1,0 +1,22 @@
+.units_item
+  %a.image{href: catalog_item_path(item.id)}
+    = image_tag item.main_photo.image.preview
+  .units_description
+    = item.name
+  .units_control
+    .units_price{ :title => (show_money_value(item, @currency).to_str + " " + @currency.code) }
+      = show_money_value item, @currency
+      %img{ :src => (@currency.icon.url || '') }
+    .units_control_fill
+    - if item.aasm_state == 'for_sale'
+      %a.units_buy{ :href => "/order/new/#{item.id}" }
+        = t('catalog.buy')
+        %span.i-cart
+    -else
+      %a.units_buy.sold{ }
+        = t('catalog.item.sold')
+    - if not @user.nil?
+      - if @user.has_fav_item?(item)
+        %a.units_favorite.fav-key.active.i-heart{ :href => "/favorites/remove/#{item.id}", :'data-fav-item' => item.id, :'data-remote' => true }
+      - else
+        %a.units_favorite.fav-key.i-heart{ :href => "/favorites/add/#{item.id}", :'data-fav-item' => item.id, :'data-remote' => true }

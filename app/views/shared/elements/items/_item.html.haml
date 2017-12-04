@@ -1,0 +1,25 @@
+%div.item_box
+  %a.link{href: catalog_item_path(item.id)}
+    %div.photo
+      = image_tag item.main_photo.image.preview, class: 'preview'
+      %div.foreground
+    %div.front
+      %div.name
+        = item.name
+      %div.price
+        = show_money_value item, @currency
+        %img.price_icon{src: @currency.icon.url}
+  %div.back
+    %div.buy_box
+      %a.buy_link{href: "/order/new/#{item.id}"}
+        %div.buy_button
+          %img.plus{src: '/images/plus.png'}
+          %p
+            = t 'catalog.buy'
+
+    %div.fav_box
+      %a.fav_link
+        %div.fav_button
+          %img.fav_ico{src:'/images/fav.png'}
+
+  = item.inspect

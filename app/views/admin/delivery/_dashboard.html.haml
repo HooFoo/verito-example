@@ -1,0 +1,53 @@
+%div.queue
+  %ol.goods
+    -#- @orders.each do |order|
+    -#  %li.order
+    -#    %div.order-box
+    -#      %span.id
+    -#        = order.id
+    -#      %span.name
+    -#        = order.name
+    -#      %span.status
+    -#        = order.status
+    -#      %span.updated
+    -#        = order.updated_at.strftime('%m.%d - %H:%M:%S')
+    - params[:proposals].each do |proposal|
+      %li.proposal
+        %a.proposal-link{href: admin_proposal_path(proposal)}
+          %div.proposal-box
+            %div.box-top
+              %img.photo{src: proposal.main_photo.image.thumb.url}
+              %span.id
+                = "##{proposal.id}"
+              %span.name
+                = proposal.address
+              %span.price
+                = humanized_money_with_symbol(Money.new(proposal.price*100, 'RUB'))
+            %div.box-bottom
+              - unless proposal.admin_user.nil?
+                %span.assignation
+                  = proposal.admin_user
+              %span.status
+                = proposal.name
+              %span.updated
+                = proposal.updated_at.strftime('%m.%d - %H:%M:%S')
+    - params[:orders].each do |order|
+      %li.order
+        %a.order-link{href: admin_order_path(order)}
+          %div.order-box
+            %div.box-top
+              %img.photo{src: order.item.main_photo.image.thumb.url}
+              %span.id
+                = "##{order.id}"
+              %span.name
+                = order.address
+              %span.price
+                = humanized_money_with_symbol(order.item.main_price.try(:value))
+            %div.box-bottom
+              - unless order.admin_user.nil?
+                %span.assignation
+                  = order.admin_user
+              %span.status
+                = order.item.name
+              %span.updated
+                = order.updated_at.strftime('%m.%d - %H:%M:%S')

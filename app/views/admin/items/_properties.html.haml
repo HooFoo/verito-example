@@ -1,0 +1,49 @@
+%fieldset.properties_fieldset
+  - @item.cathegory.each do |cat|
+    %fieldset.p_input_wrapper{cat_id: cat.id}
+      %p.name
+        =cat.name
+      %ol
+        -@item.properties_for_category(cat).each do |pv|
+          %li.input.optional.numeric.stringish{class: class_by_control_type(pv.property.control_type),
+                                               pr_id: pv.property.id}
+            %label{for: "item_property_value_#{pv.id}"}
+              = "#{pv.property.name} #{pv.property.prefix}"
+            %input{value: pv.id, name: "item[property_values_attributes][#{pv.id}][id]", type: 'hidden'}
+            %label{for: "destroy_property_#{pv.id}"}
+              Destroy?
+              %input{type: 'checkbox', id: "destroy_property_#{pv.id}", name: "item[property_values_attributes][#{pv.id}][_destroy]"}
+            - case pv.property.control_type
+              - when 'string'
+                %input.property_input{placeholder: pv.property.postfix, type: class_by_control_type(pv.property.control_type), id: "item_property_value_#{pv.id}",
+                                      name: "item[property_values_attributes][#{pv.id}][string_value]", value: pv.string_value}
+              - when 'float', 'integer'
+                %input.property_input{placeholder: pv.property.postfix, type: class_by_control_type(pv.property.control_type), id: "item_property_value_#{pv.id}",
+                  name: "item[property_values_attributes][#{pv.id}][float_value]", value: pv.float_value}
+              - when 'select'
+                %select.property_input{placeholder: pv.property.postfix, type: class_by_control_type(pv.property.control_type), id: "item_property_value_#{pv.id}",
+                                        name: "item[property_values_attributes][#{pv.id}][string_value]"}
+                  - pv.property.values.each do |val|
+                    %option{value: val, selected: pv.string_value == val}
+                      =val
+              - when 'boolean'
+                %label
+                  = pv.property.name
+                  = hidden_field_tag "item[property_values_attributes][#{pv.id}][string_value]", 'false'
+                  %input.property_input{placeholder: pv.property.postfix, type: 'checkbox', id: "item_property_value_#{pv.id}",
+                    name: "item[property_values_attributes][#{pv.id}][string_value]", checked: pv.string_value=='on'}
+      -#when 'multiselect'
+      -#  group = $('<ol class="choises-group" />')
+      -#  element.values.forEach (v) ->
+      -#    li = $('<li class="choise" />')
+      -#    checkbox = $('<input />').attr('class','property_input').attr('placeholder',element.postfix)
+      -#      .attr('type','checkbox').attr('id',"item_property_value_multi")
+      -#      .attr('name', "item[property_values_attributes][#{index}][string_value]")
+      -#    lbl = $('<label />').attr('for',"item_property_value_#{element.id}")
+      -#      .html(v)
+      -#    lbl.append(checkbox)
+      -#    li.append(lbl)
+      -#    group.append(li)
+
+
+

@@ -1,0 +1,15 @@
+---
+:concurrency: 2
+:queues:
+  - default
+  - mailers
+:schedule:
+  order_monitor:
+    every: '1m'   # Runs once per minute
+    class: OrdersMonitorJob
+  inactive_notifications:
+    every: '1h'   # Runs once per hour
+    class: InactiveNotificationJob
+  remove_incorrect_photos:
+    every: '1m'   # Runs once per minute
+    class: RemoveIncorrectPhotosJob

@@ -1,0 +1,8 @@
+- content_for :head do
+  = stylesheet_link_tag    'index', media: 'all'
+
+= render partial: 'shared/elements/slider' if @city.slides.size > 0
+= render partial: 'shared/elements/categories'
+= render partial: 'shared/elements/units/items'
+%a.catalog_link{href: "/catalog?city_id=#{@city.id}"}
+  = t('index.more')

@@ -1,0 +1,49 @@
+:javascript
+  CityID = #{@city.id};
+  Locales = {
+    personal: {
+      profile: {
+        "confirmed": "#{t('personal.profile.confirmed')}",
+        "not-confirmed": "#{t('personal.profile.not-confirmed')}"
+      }
+    },
+    forms: {
+      alerts: {
+        required: "#{t('forms.alerts.required')}",
+        "user[login]": "#{t('forms.alerts.user[login]')}",
+        "user[email]": "#{t('forms.alerts.user[email]')}",
+        "user[mobile]": "#{t('forms.alerts.user[mobile]')}",
+        "user[password]": "#{t('forms.alerts.user[password]')}",
+        "user[password_confirmation]": "#{t('forms.alerts.user[password_confirmation]')}",
+        "proposal[name]": "#{t('forms.alerts.proposal[name]')}",
+        "proposal[description]": "#{t('forms.alerts.proposal[description]')}",
+        "proposal[price]": "#{t('forms.alerts.proposal[price]')}",
+        "proposal[address]": "#{t('forms.alerts.proposal[address]')}",
+        "proposal[mobile]": "#{t('forms.alerts.proposal[mobile]')}",
+        "order[address]": "#{t('forms.alerts.order[address]')}",
+        "order[mobile]": "#{t('forms.alerts.order[mobile]')}",
+        "mobile": "#{t('forms.alerts.mobile')}",
+        "email": "#{t('forms.alerts.email')}",
+        "login": "#{t('forms.alerts.user[login]')}",
+        "token": "#{t('forms.alerts.token')}",
+        "password": "#{t('forms.alerts.password')}",
+        "old_password": "#{t('forms.alerts.password')}",
+        "password_confirmation": "#{t('forms.alerts.password_confirmation')}",
+        "passport[persondoc_issdate]": "#{t('errors.messages.passport.date')}",
+        "passport[birth_date]": "#{t('errors.messages.passport.date')}",
+        "passport[persondoc_number]": "#{t('errors.messages.passport.number')}",
+        equals: {
+          "user[password_confirmation]": "#{t('forms.alerts.equals.user[password_confirmation]')}",
+          "password_confirmation": "#{t('forms.alerts.equals.password_confirmation')}",
+        }
+      }
+    },
+    catalog: {
+      filters: {
+        all: "#{t('catalog.filters.all')}",
+        category: {
+          label: "#{t('catalog.filters.category.label')}"
+        }
+      }
+    }
+  };

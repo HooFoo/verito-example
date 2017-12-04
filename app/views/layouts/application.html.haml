@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{:content => 'text/html; charset=UTF-8', :'http-equiv' => 'Content-Type'}/
+    %meta{:content => 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0', :name => 'viewport'}/
+    %title
+      Verito
+      = yield :title
+    %link{:href => 'https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&subset=cyrillic', :rel => 'stylesheet'}/
+    %link{rel: 'icon', href: '/images/icon.png'}
+    = csrf_meta_tags
+    = render partial: 'shared/components/locale'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag 'lib/jquery-ui-1.11.4.js'
+    = javascript_include_tag 'lib/jquery.mousewheel.min.js'
+    = javascript_include_tag 'main.js'
+    = render 'shared/elements/external'
+    = yield :head
+    
+  %body{class: @special_vars[:body][:class]}
+    = render partial: 'shared/elements/header'
+    .main-content
+      = yield
+      = render partial: 'shared/elements/footer'
+    = render partial: 'shared/elements/popups'
+    

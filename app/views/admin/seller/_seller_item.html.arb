@@ -1,0 +1,50 @@
+columns do
+  column do
+    panel I18n.t('admin.seller.headers.item') do
+      attributes_table_for params[:item] do
+        row :id
+        row :name
+        row :description do |p|
+          p.description.html_safe
+        end
+        row :city
+        row :filial
+        row :admin_user
+        row :created_at
+        row :main_price do
+          humanized_money_with_symbol params[:item].main_price.value
+        end
+        row :site_link do
+          link_to  catalog_item_url(params[:item]), target: :_blank
+        end
+      end
+    end
+    panel I18n.t('admin.seller.tabs.categories') do
+      table_for params[:item].cathegory do
+        column :name
+      end
+    end
+    panel I18n.t('admin.seller.tabs.properties') do
+      table_for params[:item].property_values do |pv|
+        column :name do |pvn|
+          pvn.property.name
+        end
+        column :show_value
+      end
+    end
+    panel I18n.t('admin.seller.tabs.photos') do
+      table_for params[:item].photos do
+        column :image do |p|
+          link_to  p.image.url, target: :_blank do
+            image_tag p.image.url
+          end
+        end
+        column :photo_type
+      end
+    end
+    panel I18n.t('admin.seller.headers.links') do
+      render 'admin/seller/form_panel'
+    end
+  end
+end
+

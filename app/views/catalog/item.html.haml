@@ -1,0 +1,138 @@
+.catalog-item
+  .back{ onclick: "window.history.back()" }
+    = t("catalog.item.back")
+  .cathegories
+    .cathegory
+      - @item.cathegory.uniq.each do |cathegory|
+        - if cathegory.show
+          %a{ href: "/catalog/?cat_id=#{cathegory.id}" }
+            = cathegory.name
+  %h1
+    = @item.name
+  .information
+    - @item.photos.each do |node|
+      - rkey = ('a'..'z').to_a.shuffle[0,8].join
+      - content_for :photo_slides do
+        = image_tag node.image.preview, class: "slider_node", "data-slider-bunch": rkey, "data-zoom-image": rkey
+      
+      - content_for :photo_buttons do
+        .slider_button_box{ :"data-slider-bunch" => rkey }
+          = image_tag node.image.preview, class: "photo-slider_preview"
+          .slider_button
+          .slider_button.active
+      - content_for :photo_full do
+        = image_tag node.image.url, "data-full-zoom-image": rkey
+    - empty = 4 - @item.photos.length % 4
+    - if empty != 4
+      - (0...empty).each do |i|
+        - content_for :photo_buttons do
+          .slider_button_empty
+
+    .photo-slider
+      .slider_box
+        = yield :photo_slides
+        %div.zoom-frame
+      .slider_buttons
+        = yield :photo_buttons
+
+    .properties
+      - @item.property_values.each do |pv|
+        .property_box
+          .property_name
+            = pv.property.name
+          .property_value
+            = pv.show_value
+    .info
+      .control
+        .dropview_container.price{ "data-select-name": "city_id", "data-filter-type": "FilterSelect", "class": @item.prices_history.length > 0 ? "more" : nil }
+          .dropview_list
+            .dropview_box
+              - @item.prices_history.each do |price|
+                .dropview_item
+                  %span= show_price_with_symbol(price, @currency)
+          .dropview_current
+            %span.text
+              = show_price_with_symbol(@item.main_price, @currency)
+        .control_fill
+        - if @item.aasm_state == 'for_sale'
+          %a.buy{ :href => "/order/new/#{@item.id}" }
+            = t('catalog.item.order')
+        - else
+          %a.buy.sold
+            = t('catalog.item.sold')
+        - if not @user.nil?
+          - if @user.has_fav_item?(@item)
+            %a.favorite.fav-key.active.i-heart{ :href => "/favorites/remove/#{@item.id}", :'data-fav-item' => @item.id, :'data-remote' => true }
+          - else
+            %a.favorite.fav-key.i-heart{ :href => "/favorites/add/#{@item.id}", :'data-fav-item' => @item.id, :'data-remote' => true }
+      - if @item.aasm_state == "for_sale" && @user.present?
+        - if @item.has_proposed_price? @user
+          %a.suggest
+            - p_price = show_price_with_symbol(@item.price_for_user(@user), @currency)
+            = t('catalog.item.your_price', price: p_price)
+        - else
+          %a.suggest{ href: "#", "data-popup-name-button": "catalog-price" }
+            = t("catalog.item.suggest")
+            = image_tag "/images/telegram.png"
+
+      .seller
+        = t('catalog.item.seller') + ': '
+        %span.name
+          %a{href: "/catalog?user_id=#{@item.user.id}"}
+            = @item.user.seller_name
+      .other
+        .added
+          = t("catalog.item.created")
+          = l(@item.created_at,format: t('time.formats.item'))
+        .views
+          = image_tag "/images/eye.png"
+          = @item.views
+
+    .photo-zoom
+      = yield :photo_full
+      
+  .description
+    = raw @item.description
+  .notices
+    %div.notice
+      %span.title
+        = t('personal.item.id') + ':'
+      = @item.id
+    - @item.notices.each do |note|
+      %div.notice
+        %span.title
+          = t("catalog.item.notice") + ": "
+        = note.text
+        .date
+          = note.updated_at.strftime(t('time.formats.notice'))
+    %div.notice
+      %span.title
+        = t("catalog.item.warehouse") + ": "
+      = "#{@item.city.name}, #{@item.city.main_filial}"
+      %div
+        = t("catalog.item.delivery.begin")
+        %a{ href: "http://localhost:3000/info/delivery", title: t("catalog.item.delivery.link") }
+          = t("catalog.item.delivery.link")
+        = t("catalog.item.delivery.end")
+
+
+- content_for :popups do
+  .popup_wrapper{ :"data-popup-name" => "catalog-price" }
+    = form_tag '/catalog/price', :remote => true, :method => :post, :format => :json, :class => "popup_box", :"data-validator-processor" => "catalog_price" do
+      = hidden_field_tag :id, @item.id
+      %h1
+        = t('catalog.popups.price.title')
+      .text
+        = t('catalog.popups.price.text')
+      %label.field
+        = number_field_tag :price, nil, :"data-validator-serve" => true, :"data-validator-required" => false, :"class" => "empty-check", min: 5000, max: 1000000
+        .input-border
+        %span
+          = @item.main_price.value
+        .validation-alert
+      .buttons
+        = submit_tag t('forms.submit')
+      .i-cross.popups-std-close-button
+
+- content_for :title do
+  = " - #{@item.name}"

@@ -1,0 +1,53 @@
+.oauth_confirmation{
+  padding: 10%;
+  h1 {
+    color: #29292c;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 35px 0;
+    padding-right: 35px;
+  }
+  form {
+    max-width: 500px;
+    label.field {
+      @extend %input-field;
+      margin-bottom: 35px;
+      span {
+        color: #b2b4ba;
+        font-weight: 400;
+      }
+    }
+  }
+  .buttons {
+    @include iflex(flex-start, center);
+    button, input[type='submit'] {
+      @extend %button-std;
+      padding: 16px 22px;
+      font-size: 12px;
+    }
+    aside {
+      margin-left: 30px;
+      font-weight: 400;
+      font-size: 13px;
+      a {
+        @extend %link-std;
+        color: #232427;
+      }
+      &.eula {
+        font-size: 11px;
+        color: #9d9ea3;
+        a {
+          color: #535457;
+        }
+      }
+    }
+  }
+  .auth_errors {
+    color: #ed3d3d;
+    font-family: Roboto;
+    font-size: 13px;
+    white-space: nowrap;
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+}
